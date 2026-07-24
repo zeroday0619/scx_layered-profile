@@ -1,0 +1,352 @@
+[
+  {
+    "name": "audio",
+    "comment": "PipeWire and KDE audio services",
+    "matches": [
+      [
+        { "CommPrefix": "pipewire" }
+      ],
+      [
+        { "CommPrefix": "pipewire-pulse" }
+      ],
+      [
+        { "CommPrefix": "wireplumber" }
+      ],
+      [
+        { "CommPrefix": "jackd" }
+      ]
+    ],
+    "kind": {
+      "Grouped": {
+        "cpus_range_frac": [0.0625, 0.25],
+        "util_range": [0.20, 0.60],
+        "slice_us": 500,
+        "min_exec_us": 50,
+        "yield_ignore": 0.0,
+        "preempt": true,
+        "preempt_first": true,
+        "exclusive": false,
+        "protected": true,
+        "growth_algo": "Sticky"
+      }
+    }
+  },
+  {
+    "name": "kde-desktop",
+    "comment": "KDE Plasma, KWin and desktop infrastructure",
+    "matches": [
+      [
+        { "CommPrefix": "kwin_wayland" }
+      ],
+      [
+        { "CommPrefix": "kwin_x11" }
+      ],
+      [
+        { "CommPrefix": "plasmashell" }
+      ],
+      [
+        { "CommPrefix": "ksmserver" }
+      ],
+      [
+        { "CommPrefix": "kded" }
+      ],
+      [
+        { "CommPrefix": "kglobalaccel" }
+      ],
+      [
+        { "CommPrefix": "xdg-desktop-por" }
+      ],
+      [
+        { "CommPrefix": "Xwayland" }
+      ]
+    ],
+    "kind": {
+      "Grouped": {
+        "cpus_range_frac": [0.125, 0.375],
+        "util_range": [0.30, 0.70],
+        "slice_us": 750,
+        "min_exec_us": 75,
+        "yield_ignore": 0.0,
+        "preempt": true,
+        "preempt_first": true,
+        "exclusive": false,
+        "protected": true,
+        "growth_algo": "Sticky"
+      }
+    }
+  },
+  {
+    "name": "interactive-apps",
+    "comment": "Browsers, Electron applications and interactive terminals",
+    "matches": [
+      [
+        { "CommPrefix": "firefox" }
+      ],
+      [
+        { "CommPrefix": "chromium" }
+      ],
+      [
+        { "CommPrefix": "chrome" }
+      ],
+      [
+        { "CommPrefix": "electron" }
+      ],
+      [
+        { "CommPrefix": "Discord" }
+      ],
+      [
+        { "CommPrefix": "code" }
+      ],
+      [
+        { "CommPrefix": "konsole" }
+      ],
+      [
+        { "CommPrefix": "wezterm" }
+      ],
+      [
+        { "CommPrefix": "kitty" }
+      ],
+      [
+        { "CommPrefix": "dolphin" }
+      ],
+      [
+        { "CommPrefix": "krunner" }
+      ]
+    ],
+    "kind": {
+      "Grouped": {
+        "cpus_range_frac": [0.125, 0.50],
+        "util_range": [0.35, 0.75],
+        "slice_us": 1000,
+        "min_exec_us": 100,
+        "yield_ignore": 0.0,
+        "preempt": true,
+        "preempt_first": true,
+        "exclusive": false,
+        "protected": true,
+        "growth_algo": "Sticky"
+      }
+    }
+  },
+  {
+    "name": "gaming",
+    "comment": "Steam, Proton, Wine and gamescope workloads",
+    "matches": [
+      [
+        { "CommPrefix": "steam" }
+      ],
+      [
+        { "CommPrefix": "steamwebhelper" }
+      ],
+      [
+        { "CommPrefix": "gamescope" }
+      ],
+      [
+        { "CommPrefix": "wine" }
+      ],
+      [
+        { "CommPrefix": "wine64" }
+      ],
+      [
+        { "CommPrefix": "wineserver" }
+      ],
+      [
+        { "CommPrefix": "proton" }
+      ],
+      [
+        { "CommPrefix": "pressure-vessel" }
+      ]
+    ],
+    "kind": {
+      "Grouped": {
+        "cpus_range_frac": [0.25, 0.75],
+        "util_range": [0.45, 0.85],
+        "slice_us": 1500,
+        "min_exec_us": 100,
+        "yield_ignore": 0.0,
+        "preempt": true,
+        "preempt_first": true,
+        "exclusive": false,
+        "protected": true,
+        "growth_algo": "Sticky"
+      }
+    }
+  },
+  {
+    "name": "compiler",
+    "comment": "Rust, C, C++, kernel and package build workloads",
+    "matches": [
+      [
+        { "CommPrefix": "rustc" }
+      ],
+      [
+        { "CommPrefix": "cargo" }
+      ],
+      [
+        { "CommPrefix": "clang" }
+      ],
+      [
+        { "CommPrefix": "clang++" }
+      ],
+      [
+        { "CommPrefix": "cc1" }
+      ],
+      [
+        { "CommPrefix": "cc1plus" }
+      ],
+      [
+        { "CommPrefix": "gcc" }
+      ],
+      [
+        { "CommPrefix": "g++" }
+      ],
+      [
+        { "CommPrefix": "ld.lld" }
+      ],
+      [
+        { "CommPrefix": "ld" }
+      ],
+      [
+        { "CommPrefix": "mold" }
+      ],
+      [
+        { "CommPrefix": "ninja" }
+      ],
+      [
+        { "CommPrefix": "make" }
+      ],
+      [
+        { "CommPrefix": "cmake" }
+      ],
+      [
+        { "CommPrefix": "dpkg-buildpack" }
+      ],
+      [
+        { "CommPrefix": "dh_auto_build" }
+      ],
+      [
+        { "CommPrefix": "sbuild" }
+      ]
+    ],
+    "kind": {
+      "Grouped": {
+        "cpus_range_frac": [0.125, 0.875],
+        "util_range": [0.70, 0.92],
+        "slice_us": 5000,
+        "min_exec_us": 500,
+        "yield_ignore": 0.25,
+        "preempt": false,
+        "preempt_first": false,
+        "exclusive": false,
+        "protected": false,
+        "growth_algo": "RandomTopo"
+      }
+    }
+  },
+  {
+    "name": "virtualization",
+    "comment": "QEMU, libvirt and container workloads",
+    "matches": [
+      [
+        { "CommPrefix": "qemu-system" }
+      ],
+      [
+        { "CommPrefix": "qemu-kvm" }
+      ],
+      [
+        { "CommPrefix": "virtqemud" }
+      ],
+      [
+        { "CommPrefix": "libvirtd" }
+      ],
+      [
+        { "CommPrefix": "lxc-start" }
+      ],
+      [
+        { "CommPrefix": "lxc-monitord" }
+      ],
+      [
+        { "CommPrefix": "dockerd" }
+      ],
+      [
+        { "CommPrefix": "containerd" }
+      ]
+    ],
+    "kind": {
+      "Grouped": {
+        "cpus_range_frac": [0.125, 0.625],
+        "util_range": [0.65, 0.90],
+        "slice_us": 4000,
+        "min_exec_us": 300,
+        "yield_ignore": 0.10,
+        "preempt": false,
+        "preempt_first": false,
+        "exclusive": false,
+        "protected": false,
+        "growth_algo": "RandomTopo"
+      }
+    }
+  },
+  {
+    "name": "background",
+    "comment": "Indexers, package maintenance and background services",
+    "matches": [
+      [
+        { "CommPrefix": "baloo_file" }
+      ],
+      [
+        { "CommPrefix": "tracker-miner" }
+      ],
+      [
+        { "CommPrefix": "updatedb" }
+      ],
+      [
+        { "CommPrefix": "apt" }
+      ],
+      [
+        { "CommPrefix": "apt-get" }
+      ],
+      [
+        { "CommPrefix": "unattended-upgr" }
+      ],
+      [
+        { "CommPrefix": "packagekitd" }
+      ],
+      [
+        { "CommPrefix": "flatpak" }
+      ]
+    ],
+    "kind": {
+      "Grouped": {
+        "cpus_range_frac": [0.0625, 0.50],
+        "util_range": [0.80, 0.95],
+        "slice_us": 10000,
+        "min_exec_us": 1000,
+        "yield_ignore": 0.50,
+        "preempt": false,
+        "preempt_first": false,
+        "exclusive": false,
+        "protected": false,
+        "growth_algo": "RandomTopo"
+      }
+    }
+  },
+  {
+    "name": "default",
+    "comment": "All unmatched processes",
+    "matches": [
+      []
+    ],
+    "kind": {
+      "Open": {
+        "util_range": [0.55, 0.88],
+        "slice_us": 3000,
+        "min_exec_us": 200,
+        "yield_ignore": 0.0,
+        "preempt": true,
+        "preempt_first": false,
+        "growth_algo": "RandomTopo"
+      }
+    }
+  }
+]
